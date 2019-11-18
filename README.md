@@ -37,3 +37,7 @@ if you have any trouble with pipenv use the help flag:
 ```bash
 pipenv --help
 ```
+
+## License
+
+[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
