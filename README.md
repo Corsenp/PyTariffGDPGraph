@@ -8,7 +8,7 @@ We had to read data from two differents csv file and create a scatter plot graph
 Python 3 is required in order to run this program
 Pipenv is required in order to run this program
 
-### Mac OSX
+### OSX
 
 ```bash
 brew install python3
