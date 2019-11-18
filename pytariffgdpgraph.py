@@ -1,10 +1,25 @@
 import plotly.express as px
 import csv
 import sys
+import matplotlib.pyplot as plt
 import random
 
-def add_tariff(Country_gdp, csv_name):
-    print("tariff")
+def create_graph(country_ten):
+    try:
+        for country in country_ten:
+            plt.scatter(country[3], country[2], label=country[0])
+        plt.ylabel('GDP')
+        plt.legend()
+        plt.xlabel('Tariff')
+        plt.show()
+    except:
+        print('ERROR : can\'t create graph')
+
+def add_tariff(country_ten, country_gdp):
+    for line_tariff in country_gdp:
+        for line_ten in country_ten:
+            if (line_tariff[1] == line_ten[1]):
+                line_ten.append(line_tariff[2])
 
 def read_csv(csv_name):
     csv_list = []
@@ -21,7 +36,7 @@ def read_csv(csv_name):
     
     except:
         print("ERROR : can't open file")
-        exit
+        sys.exit(1)
 
 def get_ten_countries(countries):
     countries_random = [] 
@@ -36,6 +51,7 @@ def get_ten_countries(countries):
 
     except:
         print("ERROR : couldn't pick 10 random countries")
+        sys.exit(1)
 
 def main():
 
@@ -43,11 +59,17 @@ def main():
     
     if (arguments < 2):
         print("You need at least two argument")
-        return 1
+        sys.exit(1)
     
     country_gdp = read_csv(sys.argv[1])
+    country_tariff = read_csv(sys.argv[2])
 
-    print(get_ten_countries(country_gdp))
+    country_ten = get_ten_countries(country_tariff)
+    add_tariff(country_ten, country_gdp)
+    country_ten.sort()
+    print(country_ten)
+    create_graph(country_ten)
     return
+
 
 main()
