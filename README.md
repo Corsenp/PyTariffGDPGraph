@@ -1,6 +1,6 @@
 # PyTariffGDPGraph
 
-PyTariffGDPGraph is a school project.
+PyTariffGDPGraph (Assignment 3) is a school project.
 We had to read data from two differents csv file and create a scatter plot graph from it
 
 ## Installation
